@@ -1,0 +1,22 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "GrpcService1";
+
+package values;
+
+message RequestValues { }
+
+message SendValues { 
+	string value = 1;
+}
+
+service Values{
+	rpc GetValues(RequestValues) returns (stream SendValues);
+	rpc Count(RequestCount) returns (SendCount);
+}
+
+message RequestCount { }
+
+message SendCount {
+	int32 count = 1;
+}
